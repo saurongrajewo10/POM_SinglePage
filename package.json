@@ -1,0 +1,22 @@
+{
+  "name": "pom_singlepage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saurongrajewo10/POM_SinglePage.git"
+  },
+  "author": "Zbyszke & Danielke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saurongrajewo10/POM_SinglePage/issues"
+  },
+  "homepage": "https://github.com/saurongrajewo10/POM_SinglePage#readme",
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  }
+}
