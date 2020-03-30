@@ -9,7 +9,7 @@ class HomePage {
     }
 
     navigateToEUslugiHomePage(){
-        driver.get('https://android.zetosoftware.pl/euslugi-web/');
+        driver.get('https://www.facebook.com/');
     }
 }
 
