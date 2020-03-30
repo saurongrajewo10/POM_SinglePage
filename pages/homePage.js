@@ -1,14 +1,5 @@
-var webdriver = require('selenium-webdriver');
-
-var driver;
-
 class HomePage {
-
-    constructor(){
-        driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
-    }
-
-    navigateToEUslugiHomePage(){
+    navigateToFacebookHomePage(driver){
         driver.get('https://www.facebook.com/');
     }
 }
