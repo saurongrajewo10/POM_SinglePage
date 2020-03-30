@@ -1,3 +1,6 @@
-var homePage = require('../../pages/loginPage');
+var loginPage = require('../../pages/loginPage');
+var webdriver = require('selenium-webdriver');
 
-homePage.navigateToFacebookHomePage();
+driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
+
+loginPage.navigateToFacebookLoginPage(driver);
