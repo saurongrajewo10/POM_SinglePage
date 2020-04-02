@@ -7,7 +7,6 @@ class LoginPage {
         await driver.findElement(By.css('#email')).sendKeys(email);
         await driver.findElement(By.css('#pass')).sendKeys(password);
         await driver.findElement(By.css('#u_0_b')).click();
-
     }
 
 }
