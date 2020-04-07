@@ -6,6 +6,7 @@ class FailedLoginPage {
         }
         return await driver.getCurrentUrl();
     };
+    
     async loginToFacebook(driver, email, password) {
         await driver.findElement(By.css('#email')).sendKeys(email);
         await driver.findElement(By.css('#pass')).sendKeys(password);
