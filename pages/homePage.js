@@ -1,4 +1,4 @@
-const { By, until } = require("selenium-webdriver");
+const { By, until, Key } = require("selenium-webdriver");
 class HomePage {
     async returnHomePageUrl(driver) {
         while (driver.getCurrentUrl() === 'https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=110') {
@@ -26,6 +26,13 @@ class HomePage {
     async checkLanguageText(driver, cssSelector) {
         let languageWeWantToChangeTo = await driver.findElement(By.css(cssSelector)).getText();
         return languageWeWantToChangeTo;
+    }
+    async searchForUser(driver, userToSearch) {
+        let fieldToTypeUser = await driver.findElement(By.className('_1frb'));
+        await fieldToTypeUser.click();
+        await fieldToTypeUser.sendKeys(userToSearch, Key.RETURN);
+        let checkDisplayedUser = await driver.wait(until.elementLocated(By.css('#xt_uniq_1 > div._77we > div > div._6v_a > div._6v-_ > div._6v_0._4ik4._4ik5 > a')));
+        console.log(checkDisplayedUser)
     }
 
 }
