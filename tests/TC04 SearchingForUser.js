@@ -12,9 +12,10 @@ async function searchingForUser() {
         await assert.equal(await homePage.returnHomePageUrl(driver), 'https://www.facebook.com/');
         await homePage.searchForUser(driver, 'Zbigniew Kumiński');
         await assert.equal(await searchUserPage.checkDisplayedSearchUser(driver),'Zbigniew Kumiński');
-
+        await driver.quit();
     } catch (error) {
         console.log(error);
     }
 }
-searchingForUser();
+// searchingForUser();
+module.exports.TC04SearchingForUser = searchingForUser;

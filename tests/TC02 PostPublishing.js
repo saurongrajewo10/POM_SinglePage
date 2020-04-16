@@ -12,8 +12,10 @@ async function postPublishing() {
         await homePage.postPublish(driver);
         await homePage.waitUntilPostIsFound(driver);
         await assert.equal(await homePage.checkWhenPostAdded(driver), 'Przed chwilą');
+        await driver.quit();
     } catch (error) {
         console.log(error);
     }
 }
-postPublishing();
+// postPublishing();
+module.exports.TC02PostPublishing = postPublishing;

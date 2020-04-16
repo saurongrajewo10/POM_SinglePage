@@ -15,10 +15,13 @@ async function Loging() {
         await failedLoginPage.loginToFacebook(driver, user.email, user.password);
         await assert.equal(await homePage.returnHomePageUrl(driver), 'https://www.facebook.com/');
         await homePage.closeGrayScreen(driver);
+        await driver.quit();
     }
     catch (error) {
         console.log(error);
     }
 }
-Loging();
+// Loging();
+
+module.exports.TC01Loging = Loging;
 

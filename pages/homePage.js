@@ -7,7 +7,7 @@ class HomePage {
     };
 
     async closeGrayScreen(driver) {
-        await driver.findElement(By.css('body > div._n8._3qx.uiLayer._3qw')).click();
+        await driver.wait(until.elementLocated(By.css('body > div._n8._3qx.uiLayer._3qw'))).click();
     }
 
     async postPublish(driver) {
