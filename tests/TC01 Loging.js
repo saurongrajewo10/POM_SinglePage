@@ -11,9 +11,9 @@ async function Loging() {
         await loginPage.navigateToFacebookLoginPage(driver);
         await loginPage.loginToFacebook(driver, 'dajto', 'wciapkach');
         await assert.equal(await failedLoginPage.returnFailedLoginPageUrl(driver), 'https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=110', 'Loging is not working');
-        await assert.ok(await failedLoginPage.returnLoginErrorStatement(driver));
+        await assert.equal(await failedLoginPage.returnLoginErrorStatement(driver), 'Wprowadzony adres e-mail lub numer telefonu nie pasuje do żadnego konta. Załóż konto.');
         await failedLoginPage.loginToFacebook(driver, user.email, user.password);
-        await assert.equal(await homePage.returnHomePageUrl(driver), 'https://www.facebook.com/');
+        await homePage.waitUntilUrlsFacebook(driver);
         await homePage.closeGrayScreen(driver);
         await driver.quit();
     }

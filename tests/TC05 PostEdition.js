@@ -8,13 +8,12 @@ async function postEdition() {
         driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
         await driver.manage().setTimeouts({ implicit: 5000 });
         await successfullLogingFunction.successfullLogingFunction(driver);
-        await assert.equal(await homePage.returnHomePageUrl(driver), 'https://www.facebook.com/');
-        let postValueBeforeEdition = await homePage.getPostValue(driver);
-        const test = postValueBeforeEdition;
-        await homePage.postEdition(driver);
-        await homePage.waitUntilPostIsEdited(driver, test);
+        await assert.equal(await driver.getCurrentUrl(), 'https://www.facebook.com/');
+        let newPostValue = Math.random(1,100);
+        await homePage.postEdition(driver, newPostValue);
+        await homePage.waitUntilPostIsEdited(driver, newPostValue);
         const postValueAfterEdition = await homePage.getPostValue(driver);
-        await assert.notEqual(test, postValueAfterEdition);
+        await assert.equal(newPostValue, postValueAfterEdition);
         await driver.quit();
     } catch (error) {
         console.log(error);

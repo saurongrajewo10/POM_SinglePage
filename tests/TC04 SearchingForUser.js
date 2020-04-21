@@ -9,7 +9,7 @@ async function searchingForUser() {
         driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
         await driver.manage().setTimeouts({ implicit: 5000 });
         await successfullLogingFunction.successfullLogingFunction(driver);
-        await assert.equal(await homePage.returnHomePageUrl(driver), 'https://www.facebook.com/');
+        await assert.equal(await driver.getCurrentUrl(), 'https://www.facebook.com/');
         await homePage.searchForUser(driver, 'Zbigniew Kumiński');
         await assert.equal(await searchUserPage.checkDisplayedSearchUser(driver),'Zbigniew Kumiński');
         await driver.quit();
@@ -17,5 +17,5 @@ async function searchingForUser() {
         console.log(error);
     }
 }
-// searchingForUser();
+searchingForUser();
 module.exports.TC04SearchingForUser = searchingForUser;

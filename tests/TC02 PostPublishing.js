@@ -8,7 +8,7 @@ async function postPublishing() {
         driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
         await driver.manage().setTimeouts({ implicit: 5000 });
         await successfullLogingFunction.successfullLogingFunction(driver);
-        await assert.equal(await homePage.returnHomePageUrl(driver), 'https://www.facebook.com/');
+        await assert.equal(await driver.getCurrentUrl(), 'https://www.facebook.com/');
         await homePage.postPublish(driver);
         await homePage.waitUntilPostIsFound(driver);
         await assert.equal(await homePage.checkWhenPostAdded(driver), 'Przed chwilą');
@@ -18,4 +18,5 @@ async function postPublishing() {
     }
 }
 // postPublishing();
+
 module.exports.TC02PostPublishing = postPublishing;

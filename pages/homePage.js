@@ -1,10 +1,15 @@
 const { By, until, Key } = require("selenium-webdriver");
 class HomePage {
     async returnHomePageUrl(driver) {
-        while (driver.getCurrentUrl() === 'https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=110') {
+        while (driver.getCurrentUrl() !== 'https://www.facebook.com/') {
         }
         return await driver.getCurrentUrl();
     };
+
+    async waitUntilUrlsFacebook(driver) {
+        await driver.wait(until.urlIs('https://www.facebook.com/'));
+        return;
+    }
 
     async closeGrayScreen(driver) {
         await driver.wait(until.elementLocated(By.css('body > div._n8._3qx.uiLayer._3qw'))).click();
@@ -17,7 +22,7 @@ class HomePage {
         await driver.findElement(By.css('div._1j2v > div._2dck._1pek._4-u3 > div._45wg._69yt > button')).click();
     }
 
-    async postEdition(driver) {
+    async postEdition(driver, newPostValue) {
         await driver.findElement(By.className('_4xev _p')).click();
         let editButton;
         if (await this.wasPostEdited(driver)) {
@@ -27,7 +32,7 @@ class HomePage {
         }
         await editButton.click();
         await driver.findElement(By.css('div._i-o > div > div._7r84 > div > div._4bl9 > div > div > div > div > div > div > div > div > div > div > div > span > span')).
-            sendKeys(Key.chord(Key.CONTROL, 'a'), Math.random(1, 100));
+            sendKeys(Key.chord(Key.CONTROL, 'a'), newPostValue);
         await driver.findElement(By.css('div._1j2v > div._2dck._4-u3._57d8 > div > div._ohf.rfloat > div > button')).click();
     }
 
@@ -45,9 +50,9 @@ class HomePage {
         }
     }
 
-    async waitUntilPostIsEdited(driver, postValueBeforeEdition) {
-        while (await this.getPostValue(driver) === postValueBeforeEdition) {
-        }
+    async waitUntilPostIsEdited(driver, newPostValue) {
+        await driver.wait(until.elementTextIs(await driver.findElement(By.className('_5pbx userContent _3ds9 _3576')), newPostValue));
+        return;
     }
 
     async changeLanguage(driver) {
@@ -73,8 +78,8 @@ class HomePage {
     }
 
     async waitUntilPostIsFound(driver) {
-        while (await this.checkWhenPostAdded(driver) !== 'Przed chwilą') {
-        }
+        await driver.wait(until.elementTextIs(await driver.findElement(By.className('timestampContent')), 'Przed chwilą'));
+        return;
     }
 
     async logout(driver) {
