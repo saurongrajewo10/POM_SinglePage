@@ -10,7 +10,6 @@ async function main(){
     await TC02PostPublishing();
     await TC03ChangeLanguage();
     await TC04SearchingForUser();
-    await TC04SearchingForUser();
     await TC05PostEdition();
     await TC06Logout();
 }

@@ -7,7 +7,7 @@ class LoginPage {
     async loginToFacebook(driver, email, password) {
         await driver.findElement(By.css('#email')).sendKeys(email);
         await driver.findElement(By.css('#pass')).sendKeys(password);
-        await driver.findElement(By.css('#u_0_b')).click();
+        await driver.findElement(By.css('#u_0_4')).click();
     }
 
     async checkIsUserLoggedOut(driver) {
