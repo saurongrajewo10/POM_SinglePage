@@ -9,14 +9,14 @@ async function postPublishing() {
         await driver.manage().setTimeouts({ implicit: 5000 });
         await successfullLogingFunction.successfullLogingFunction(driver);
         await assert.equal(await driver.getCurrentUrl(), 'https://www.facebook.com/');
-        await homePage.postPublish(driver);
-        await homePage.waitUntilPostIsFound(driver);
-        await assert.equal(await homePage.checkWhenPostAdded(driver), 'Przed chwilą');
+        let postValue = await homePage.postPublish(driver);
+        const postValueAfterCreation = await homePage.getPostValue(driver);
+        await assert.notEqual(postValue, postValueAfterCreation);
         await driver.quit();
     } catch (error) {
         console.log(error);
     }
 }
-// postPublishing();
+ //postPublishing();
 
 module.exports.TC02PostPublishing = postPublishing;

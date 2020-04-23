@@ -1,11 +1,5 @@
 const { By, until, Key } = require("selenium-webdriver");
 class HomePage {
-    async returnHomePageUrl(driver) {
-        while (driver.getCurrentUrl() !== 'https://www.facebook.com/') {
-        }
-        return await driver.getCurrentUrl();
-    };
-
     async waitUntilUrlsFacebook(driver) {
         await driver.wait(until.urlIs('https://www.facebook.com/'));
         return;
@@ -18,8 +12,10 @@ class HomePage {
     async postPublish(driver) {
         var postInput = await driver.findElement(By.className('_3en1 _480e navigationFocus'));
         await postInput.click();
-        await postInput.sendKeys('Test post' + Math.random(1, 100));
+        let postInputValue = 'Test post' + Math.random(1, 100);
+        await postInput.sendKeys(postInputValue);
         await driver.findElement(By.css('div._1j2v > div._2dck._1pek._4-u3 > div._45wg._69yt > button')).click();
+        return postInputValue;
     }
 
     async postEdition(driver, newPostValue) {
@@ -50,11 +46,6 @@ class HomePage {
         }
     }
 
-    async waitUntilPostIsEdited(driver, newPostValue) {
-        await driver.wait(until.elementTextIs(await driver.findElement(By.className('_5pbx userContent _3ds9 _3576')), newPostValue));
-        return;
-    }
-
     async changeLanguage(driver) {
         await driver.findElement(By.css('#pagelet_rhc_footer > div > div.uiContextualLayerParent > div > div > div._4bl9 > div > a:nth-child(3)')).click();
         await driver.findElement(By.css('body > div._10.uiLayer._4-hy._3qw > div._59s7 > div > div > div > div._5lnf.uiOverlayFooter._5a8u > button')).click();
@@ -75,11 +66,6 @@ class HomePage {
     async checkWhenPostAdded(driver) {
         var whenAdded = driver.findElement(By.className('timestampContent')).getText();
         return whenAdded;
-    }
-
-    async waitUntilPostIsFound(driver) {
-        await driver.wait(until.elementTextIs(await driver.findElement(By.className('timestampContent')), 'Przed chwilą'));
-        return;
     }
 
     async logout(driver) {

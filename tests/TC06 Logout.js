@@ -10,11 +10,11 @@ async function logout() {
         await driver.manage().setTimeouts({ implicit: 5000 });
         await successfullLogingFunction.successfullLogingFunction(driver);
         await homePage.logout(driver);
-        await assert.notEqual(loginPage.checkIsUserLoggedOut, 'https://www.facebook.com/');
+        await assert.equal(await loginPage.checkIsUserLoggedOut(driver), 'Facebook – zaloguj się lub zarejestruj');
         await driver.quit();
     } catch (error) {
         console.log(error);
     }
 }
-// logout();
+//logout();
 module.exports.TC06Logout = logout;

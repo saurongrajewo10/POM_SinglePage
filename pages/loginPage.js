@@ -7,14 +7,12 @@ class LoginPage {
     async loginToFacebook(driver, email, password) {
         await driver.findElement(By.css('#email')).sendKeys(email);
         await driver.findElement(By.css('#pass')).sendKeys(password);
-        // await driver.findElement(By.css('#u_0_b')).click();
         await driver.findElement(By.className('login_form_login_button uiButton uiButtonConfirm')).click();
     }
 
     async checkIsUserLoggedOut(driver) {
-        while (driver.getCurrentUrl() === 'https://www.facebook.com/') {
-        }
-        return await driver.getCurrentUrl();
+        let pageTitle = await driver.getTitle();
+        return pageTitle;
     }
 
 }
