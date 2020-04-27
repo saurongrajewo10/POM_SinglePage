@@ -13,11 +13,11 @@ async function searchingForUser() {
         await homePage.searchForUser(driver, 'Zbigniew Kumiński');
         await assert.equal(await searchUserPage.checkDisplayedSearchUser(driver),'Zbigniew Kumiński');
         await driver.quit();
-        return "TCO4 successful";
+        return "TC04 successful- TC04 Searching For User";
     } catch (error) {
         console.log(error);
         await driver.quit();
-        return "TCO4 failed";
+        return "TC04 failed- TC04 Searching For User";
     }
 }
 //searchingForUser();
