@@ -14,8 +14,11 @@ async function changeLanguage() {
         await assert.notEqual(newLanguage, oldLanguage);
         await homePage.changeLanguage(driver);
         await driver.quit();
+        return "TCO3 successful";
     } catch (error) {
         console.log(error);
+        await driver.quit();
+        return "TCO3 failed";
     }
 }
 //changeLanguage();

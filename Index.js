@@ -6,11 +6,13 @@ const { TC05PostEdition } = require('./tests/TC05 PostEdition');
 const { TC06Logout } = require('./tests/TC06 Logout');
 
 async function main(){
-    await TC01Loging();
-    await TC02PostPublishing();
-    await TC03ChangeLanguage();
-    await TC04SearchingForUser();
-    await TC05PostEdition();
-    await TC06Logout();
+    const testRaport = [];
+    testRaport.push(await TC01Loging());
+    testRaport.push(await TC02PostPublishing());
+    testRaport.push(await TC03ChangeLanguage());
+    testRaport.push(await TC04SearchingForUser());
+    testRaport.push(await TC05PostEdition());
+    testRaport.push(await TC06Logout());
+    console.log(testRaport)
 }
 main();

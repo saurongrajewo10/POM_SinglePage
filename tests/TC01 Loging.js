@@ -16,9 +16,12 @@ async function Loging() {
         await homePage.waitUntilUrlsFacebook(driver);
         await homePage.closeGrayScreen(driver);
         await driver.quit();
+        return "TCO1 successful";
     }
     catch (error) {
         console.log(error);
+        await driver.quit();
+        return "TCO1 failed";
     }
 }
 // Loging();

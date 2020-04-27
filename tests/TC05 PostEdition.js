@@ -14,8 +14,11 @@ async function postEdition() {
         const postValueAfterEdition = await homePage.getPostValue(driver);
         await assert.notEqual(newPostValue, postValueAfterEdition);
         await driver.quit();
+        return "TCO5 successful";
     } catch (error) {
         console.log(error);
+        await driver.quit();
+        return "TCO5 failed";
     }
 }
 //postEdition();
