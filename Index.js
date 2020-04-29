@@ -4,6 +4,7 @@ const { TC03ChangeLanguage } = require('./tests/TC03 ChangeLanguage');
 const { TC04SearchingForUser } = require('./tests/TC04 SearchingForUser');
 const { TC05PostEdition } = require('./tests/TC05 PostEdition');
 const { TC06Logout } = require('./tests/TC06 Logout');
+const { raportPage } = require('./pages/raportPage');
 
 async function main(){
     const testRaport = [];
@@ -13,6 +14,6 @@ async function main(){
     testRaport.push(await TC04SearchingForUser());
     testRaport.push(await TC05PostEdition());
     testRaport.push(await TC06Logout());
-    console.log(testRaport)
+    await raportPage(testRaport);
 }
 main();

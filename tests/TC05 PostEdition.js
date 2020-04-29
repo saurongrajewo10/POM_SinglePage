@@ -14,11 +14,11 @@ async function postEdition() {
         const postValueAfterEdition = await homePage.getPostValue(driver);
         await assert.notEqual(newPostValue, postValueAfterEdition);
         await driver.quit();
-        return "TC05 successful- TC05 Post Edition";
+        return "TC05 successful - TC05 Post Edition";
     } catch (error) {
         console.log(error);
         await driver.quit();
-        return "TC05 failed- TC05 Post Edition";
+        return "TC05 failed - TC05 Post Edition";
     }
 }
 //postEdition();
