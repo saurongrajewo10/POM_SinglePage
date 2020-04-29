@@ -16,12 +16,12 @@ async function Loging() {
         await homePage.waitUntilUrlsFacebook(driver);
         await homePage.closeGrayScreen(driver);
         await driver.quit();
-        return "TC01 successful - TC01 Loging";
+        return { message: "TC01 successful - TC01 Loging", isSuccessful: true }; 
     }
     catch (error) {
         console.log(error);
         await driver.quit();
-        return "TC01 failed - TC01 Loging";
+        return { message: "TC01 failed - TC01 Loging", isSuccessful: false };
     }
 }
 // Loging();

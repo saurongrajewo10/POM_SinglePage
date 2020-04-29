@@ -13,11 +13,12 @@ async function postPublishing() {
         const postValueAfterCreation = await homePage.getPostValue(driver);
         await assert.notEqual(postValue, postValueAfterCreation);
         await driver.quit();
-        return "TC02 successful - TC02 Post Publishing";
+        return { message: "TC02 successful - TC02 Post Publishing", isSuccessful: true };
+
     } catch (error) {
         console.log(error);
         await driver.quit();
-        return "TC02 failed - TC02 Post Publishing";
+        return { message: "TC02 failed - TC02 Post Publishing", isSuccessful: false };
     }
 }
  //postPublishing();

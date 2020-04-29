@@ -12,11 +12,12 @@ async function logout() {
         await homePage.logout(driver);
         await assert.equal(await loginPage.checkIsUserLoggedOut(driver), 'Facebook – zaloguj się lub zarejestruj');
         await driver.quit();
-        return "TC06 successful - TC06 Logout";
+        return { message: "TC06 successful - TC06 Logout", isSuccessful: true };
+
     } catch (error) {
         console.log(error);
         await driver.quit();
-        return "TC06 failed - TC06 Logout";
+        return { message: "TC06 failed - TC06 Logout", isSuccessful: false };
     }
 }
 //logout();
