@@ -1,9 +1,11 @@
 const { By, until, Key } = require("selenium-webdriver");
 var webdriver = require('selenium-webdriver');
+var path = require("path");
 
 async function raportPage(testRaport) {
     driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.chrome()).build();
-    await driver.get("C:/Users/dawidd/Desktop/POM_SinglePage/pages/testResultsPage.html");
+    var absolutePath = path.resolve("testResultsPage.html");
+    await driver.get(absolutePath);
     await testRaport.forEach(test => {
         let tag;
         if (test.isSuccessful) {
@@ -21,5 +23,5 @@ async function raportPage(testRaport) {
     console.log(testRaport)
 
 }
-//raportPage([1, 2, 3]);
+// raportPage([{ message: "TC01 successful - TC01 Loging", isSuccessful: true }, { message: "TC02 failed - TC02 Post Publishing", isSuccessful: false }]);
 module.exports.raportPage = raportPage;

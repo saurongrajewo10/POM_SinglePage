@@ -4,7 +4,7 @@ const { TC03ChangeLanguage } = require('./tests/TC03 ChangeLanguage');
 const { TC04SearchingForUser } = require('./tests/TC04 SearchingForUser');
 const { TC05PostEdition } = require('./tests/TC05 PostEdition');
 const { TC06Logout } = require('./tests/TC06 Logout');
-const { raportPage } = require('./pages/raportPage');
+const { raportPage } = require('./raportPage');
 
 async function main(){
     const testRaport = [];
