@@ -23,5 +23,5 @@ async function searchingForUser() {
         return { message: "TC04 failed - TC04 Searching For User", isSuccessful: false };
     }
 }
-searchingForUser();
+// searchingForUser();
 module.exports.TC04SearchingForUser = searchingForUser;

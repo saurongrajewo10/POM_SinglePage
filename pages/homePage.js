@@ -15,6 +15,7 @@ class HomePage {
         let postInputValue = 'Test post' + Math.random(1, 100);
         await postInput.sendKeys(postInputValue);
         await driver.findElement(By.css('div._1j2v > div._2dck._1pek._4-u3 > div._45wg._69yt > button')).click();
+        await driver.sleep(3000);
         return postInputValue;
     }
 

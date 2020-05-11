@@ -11,7 +11,7 @@ async function postPublishing() {
         await assert.equal(await driver.getCurrentUrl(), 'https://www.facebook.com/');
         let postValue = await homePage.postPublish(driver);
         const postValueAfterCreation = await homePage.getPostValue(driver);
-        await assert.notEqual(postValue, postValueAfterCreation);
+        await assert.equal(postValue, postValueAfterCreation);
         await driver.quit();
         return { message: "TC02 successful - TC02 Post Publishing", isSuccessful: true };
 
@@ -21,6 +21,6 @@ async function postPublishing() {
         return { message: "TC02 failed - TC02 Post Publishing", isSuccessful: false };
     }
 }
- //postPublishing();
+//  postPublishing();
 
 module.exports.TC02PostPublishing = postPublishing;
