@@ -1,6 +1,6 @@
 const { By, until, Key } = require("selenium-webdriver");
 class HomePage {
-    async waitUntilUrlsFacebook(driver) {
+    async waitUntilUrlIsFacebook(driver) {
         await driver.wait(until.urlIs('https://www.facebook.com/'));
         return;
     }

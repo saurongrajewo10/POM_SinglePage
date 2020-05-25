@@ -5,7 +5,7 @@ var user = require('./../users/users.json');
 async function successfullLogingFunction(driver){
     await loginPage.navigateToFacebookLoginPage(driver);
     await loginPage.loginToFacebook(driver, user.email, user.password);
-    await homePage.waitUntilUrlsFacebook(driver);
+    await homePage.waitUntilUrlIsFacebook(driver);
     await homePage.closeGrayScreen(driver);
 }
 
