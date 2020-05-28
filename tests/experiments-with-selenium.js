@@ -13,10 +13,10 @@ async function experiments() {
     await homePage.waitUntilUrlIsFacebook(driver);
     await homePage.closeGrayScreen(driver);
 
-    //RETURNING BROSWER SETTINGS AND STATISTICS
+    // RETURNING BROSWER SETTINGS AND STATISTICS
     // let elo = await driver.getCapabilities();
     // console.log(elo);
-    //RETURNING BROSWER SETTINGS AND STATISTICS
+    // RETURNING BROSWER SETTINGS AND STATISTICS
 
     // CREATION OF NEW TAB AND SWITCHING TO FIRST ONE
     // await driver.switchTo().newWindow();
@@ -34,27 +34,40 @@ async function experiments() {
     // const actions = await new actions.Actions();
     // console.log('stryng');
     // await actions
-    // // .keyDown(ALT)
-    // // .keyDown(F4)
+    // .keyDown(ALT)
+    // .keyDown(F4)
     // .mouseDown(await driver.findElement(By.css("#u_0_a > div:nth-child(1) > div:nth-child(1) > div > a > span > span")))
     // .mouseMove(await driver.findElement(By.className('_3en1 _480e navigationFocus')))
     // .mouseUp()
     // .perform();
-    //    Nie działa 
+    // It is not working
 
-    //TAKE A SCREENSHOT AND RETURN BASE ENCODED STRING (64 BASE CODED)
+    // TAKE A SCREENSHOT AND RETURN BASE ENCODED STRING (64 BASE CODED)
     // let elo = await driver.takeScreenshot();
     // console.log(elo);
-    //TAKE A SCREENSHOT AND RETURN BASE ENCODED STRING (64 BASE CODED)
+    // TAKE A SCREENSHOT AND RETURN BASE ENCODED STRING (64 BASE CODED)
 
 
-    //RETURN A PAGE SOURCE
-    // let mordziu = await driver.getPageSource();
-    // console.log(mordziu);
-    //RETURN A PAGE SOURCE
+    // RETURN A PAGE SOURCE
+    // let HTMLCode = await driver.getPageSource();
+    // console.log(HTMLCode);
+    // RETURN A PAGE SOURCE
 
-    // let lokejszyn = driver.findElement(By.css('#navItem_474171183259175 > a > div')).getLocation();
-    // console.log(lokejszyn);                                                                             
+    // RETURN A OBJECT WITH SIZE AND POSITION OF WEBELEMENT
+    // let lokejszyn = await driver.findElement(By.className('_4un6')).getRect();
+    // console.log(lokejszyn)
+    // RETURN A OBJECT WITH SIZE AND POSITION OF WEBELEMENT
     
+    // CHECK IF CHECKBOX IS SELECTED
+    // let radioButton = await driver.findElement(By.css('#main > div.w3-row > div:nth-child(1) > input[type=checkbox]:nth-child(2)'));
+    // await radioButton.click();
+    // console.log(await radioButton.isSelected());
+    // CHECK IF CHECKBOX IS SELECTED
+
+    // RETURNS AN ARRAY OF MATCHING WEBELEMENTS
+    // let webElements = await driver.findElements(By.className('_4kny _2s24'));
+    // console.log(webElements)
+    // RETURNS AN ARRAY OF MATCHING WEBELEMENTS
+
 }
 experiments();
