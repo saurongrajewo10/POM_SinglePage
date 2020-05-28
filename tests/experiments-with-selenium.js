@@ -53,8 +53,8 @@ async function experiments() {
     // console.log(mordziu);
     //RETURN A PAGE SOURCE
 
- let lokejszyn = driver.findElement(By.css('#navItem_474171183259175 > a > div')).getLocation();
-  console.log(lokejszyn);
-
+    // let lokejszyn = driver.findElement(By.css('#navItem_474171183259175 > a > div')).getLocation();
+    // console.log(lokejszyn);                                                                             
+    
 }
 experiments();
